@@ -47,6 +47,9 @@ const tpd = document.getElementById("tpd");
 const sld = document.getElementById("sld");
 const commissionLabel = document.getElementById("commission");
 
+
+const tpSell = document.getElementById("tpSell");
+const slSell = document.getElementById("slSell");
 // ===== SPREAD OUTPUT =====
 const btcValueLabel = document.getElementById("btcValue");
 
@@ -139,6 +142,27 @@ function calculate() {
     takeProfit = en + (prof / lotSize);
     stopOut = en - priceMove;
   }
+/*for sale*/
+let takeProfitSell = 0;
+let stopOutSell = 0;
+
+if (pair.value === "Gold") {
+
+  let contractSize = 100;
+
+  takeProfitSell = en - (prof / (contractSize * lotSize));
+  stopOutSell = en + (bal / (contractSize * lotSize));
+
+}
+
+else if (pair.value === "BTC") {
+
+  let equity = bal;
+  let priceMove = equity / lotSize;
+
+  takeProfitSell = en - (prof / lotSize);
+  stopOutSell = en + priceMove;
+}
 
   // ======================
   // 📏 BASE DISTANCES
@@ -154,6 +178,8 @@ function calculate() {
 
   tpd.innerText = tpDistance.toFixed(2);
   sld.innerText = slDistance.toFixed(2);
+  tpSell.innerText = takeProfitSell.toFixed(2);
+slSell.innerText = stopOutSell.toFixed(2);
 
   // ======================
   // 📊 AFTER SPREAD FEE
