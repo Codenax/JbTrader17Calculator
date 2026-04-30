@@ -9,6 +9,18 @@ function toggleFullScreen() {
 function closeApp() {
   window.electronAPI.close();
 }
+
+
+const select = document.getElementById("pair");
+
+
+select.addEventListener("change", function () {
+  if (this.value === "Gold") {
+    select.classList.add("gold-mode");
+  } else {
+    select.classList.remove("gold-mode");
+  }
+});
 // ===== LOT GENERATION =====
 const lotSelect = document.getElementById("lot");
 

@@ -33,7 +33,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: .2rem;
+  height: 0.2rem;
 
   background: linear-gradient(to right, transparent, #00ffb3, transparent);
 
@@ -108,6 +108,10 @@ select {
   font-size: 10px;
   -webkit-app-region: no-drag;
 }
+select.gold-mode {
+  border-color: #ffd400 !important;
+  color: #ffd400 !important;
+}
 
 /* HEADINGS */
 h3 {
@@ -171,4 +175,14 @@ h3 {
 .row .panel {
   flex: 1;
   width: 50%;
+}
+
+.jbname {
+  margin-top: -7px;
+  font-size: 8px;
+  color: #fce518;
+
+  font-style: italic;
+  display: block;
+  text-align: end;
 }
