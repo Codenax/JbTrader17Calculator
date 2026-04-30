@@ -92,20 +92,35 @@ function calculate() {
   // ======================
   if (pair.value === "BTC") {
 
-    let acc = account.value;
+  let acc = account.value;
 
-    if (acc === "Standard") spreadFee = 14;
-    else if (acc === "Pro") spreadFee = 9.6;
-    else if (acc === "Raw Spread") spreadFee = 8;
-    else if (acc === "Zero") spreadFee = 0;
+  if (acc === "Standard") spreadFee = 14;
+  else if (acc === "Pro") spreadFee = 9.6;
+  else if (acc === "Raw Spread") spreadFee = 8;
+  else if (acc === "Zero") spreadFee = 0;
 
-    btcValueLabel.innerText = spreadFee;
+  btcValueLabel.innerText = spreadFee;
 
-  } else {
-    btcValueLabel.innerText = "-";
-    spreadFee = 0;
+} 
+
+else if (pair.value === "Gold") {
+
+  let acc = account.value;
+
+  if (acc === "Standard") spreadFee = 0.32;
+  else if (acc === "Pro") spreadFee = 0.22;
+  else if (acc === "Raw Spread") spreadFee = 0.05;
+  else if (acc === "Zero") spreadFee = 0;
+
+  btcValueLabel.innerText = spreadFee;
+
+} 
+
+else {
+  btcValueLabel.innerText = "-";
+  spreadFee = 0;
   }
-
+  
   // ===== STOP IF NO LOT =====
   if (lotSize === 0) return;
 
@@ -187,10 +202,18 @@ else if (pair.value === "BTC") {
   // ======================
   // 📊 AFTER SPREAD FEE
   // ======================
-  let tpAfter = tpDistance + spreadFee;
-  let slAfter = slDistance - spreadFee;
+  let tpAfter = tpDistance;
+let slAfter = slDistance;
+
+// ======================
+// APPLY SPREAD FEE EFFECT
+// ======================
+if (pair.value === "BTC" || pair.value === "Gold") {
+  tpAfter = tpDistance + spreadFee;
+  slAfter = slDistance - spreadFee;
 
   if (slAfter < 0) slAfter = 0;
+}
 
   tpAfterFee.innerText = tpAfter.toFixed(2);
   slAfterFee.innerText = slAfter.toFixed(2);
