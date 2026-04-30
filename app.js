@@ -179,7 +179,10 @@ else if (pair.value === "BTC") {
   tpd.innerText = tpDistance.toFixed(2);
   sld.innerText = slDistance.toFixed(2);
   tpSell.innerText = takeProfitSell.toFixed(2);
-slSell.innerText = stopOutSell.toFixed(2);
+  slSell.innerText = stopOutSell.toFixed(2);
+  
+  const entryShow = document.getElementById("entryShow");
+  entryShow.innerText = en.toFixed(2);
 
   // ======================
   // 📊 AFTER SPREAD FEE
