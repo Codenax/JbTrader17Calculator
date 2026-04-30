@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JbTrader17 Trading Calculator</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- TITLE BAR -->
+    <div class="titlebar">
+      <div class="title">JbTrader17 Calculator</div>
+      <div class="window-controls">
+
+        <button class="btn yellow" onclick="minimizeApp()"></button>
+        <button class="btn sky" onclick="toggleFullScreen()"></button>
+        <button class="btn red" onclick="closeApp()"></button>
+
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid">
+
+      <!-- INPUT PANEL -->
+      <div class="panel">
+        <h3>Inputs</h3>
+
+        <select id="pair">
+          <option value="Gold">Gold</option>
+          <option value="BTC" selected>BTC</option>
+        </select>
+
+        <select id="account">
+          <option value="Standard" selected>Standard</option>
+          <option value="Pro">Pro</option>
+          <option value="Raw Spread">Raw Spread</option>
+          <option value="Zero">Zero</option>
+        </select>
+
+        <input id="balance" placeholder="Balance">
+        <input id="entry" placeholder="Entry Price">
+        <input id="profit" placeholder="Target Profit">
+
+        <select id="lot"></select>
+      </div>
+      <div class="row">
+        <!-- RESULT PANEL -->
+        <div class="panel">
+          <h3 style="text-transform: uppercase;">Results</h3>
+
+          <div>TP Price: <span id="tp">0</span></div>
+          <div style="color: rgb(255, 255, 255);">SL Price: <span id="sl">0</span></div>
+
+          <div>TP Distance: <span id="tpd">0</span></div>
+          <div style="color: rgb(255, 255, 255);">SL Distance: <span id="sld">0</span></div>
+
+
+        </div>
+
+        <!-- AFTER FEE PANEL -->
+        <div class="panel highlight">
+          <div>Commission: <span id="commission">0</span></div>
+
+          <div>Spread Fee: <span id="btcValue">0</span></div>
+          <h3 style="text-transform: capitalize;">After Spread Fee</h3>
+
+          <div>TP Distance: <span id="tpAfterFee">0</span></div>
+          <div>SL Distance: <span id="slAfterFee">0</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
